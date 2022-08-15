@@ -1,0 +1,19 @@
+server:
+  port: 9026
+nacos:
+  addr: 192.168.65.128:8848
+spring:
+  application:
+    name: billCloud
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.addr}
+      config:
+        server-addr: ${nacos.addr} #Nacos作为配置中心地址
+        file-extension: yml #指定yaml格式的配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
